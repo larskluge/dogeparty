@@ -1,0 +1,34 @@
+<ul id="waitingBTCPayFeedContent" data-bind="foreach: entries" class="notification-body">
+    <li>
+      <span class="padding-10">
+        <em data-bind="css: displayColor" class="padding-5 no-border-radius pull-left margin-right-5">
+          <i class="fa fa-fw fa-exclamation fa-2x"></i>
+        </em>
+        <span>
+           A payment of
+           <b class="notoQuantityColor"><span data-bind="text: dispBTCQuantity"></span></b>
+           <b class="notoAssetColor">BTC</b> is required from 
+           <b class="notoAddrColor"><span data-bind="text: dispMyAddr"></span></b> to settle payment for
+           matched order <b><span data-bind="html: dispMyOrderTxHash"></span></b>.
+           <div class="clearfix"></div>
+           <span class="pull-right"><button class="btn btn-xs btn-success margin-top-5" data-bind="click: completeBTCPay">Pay Now</button></span>
+           <span class="pull-left font-xs text-muted"><i>Expires ~<span data-bind="timeago: approxExpiresInTime"></span> (@ block <span data-bind="text: MATCH_EXPIRE_INDEX"></span>)</i>
+        </span>
+      </span>
+    </li>
+</ul>
+<ul id="upcomingBTCPayFeedContent" data-bind="foreach: entries" class="notification-body">
+    <li>
+      <span class="padding-10">
+        <em class="bg-color-lighten padding-5 no-border-radius pull-left margin-right-5">
+          <i class="fa fa-fw fa-clock-o fa-2x"></i>
+        </em>
+        <span>
+           <span data-bind="text: numBlocksUntilEligible"></span> block(s) (~<span data-bind="timeago: approxTimeUntilEligible"></span>)
+           left until order <b><span data-bind="html: dispMyOrderTxHash"></span></b>
+           is eligible for <b class="notoQuantityColor"><span data-bind="text: dispBTCQuantity"></span></b>
+           <b class="notoAssetColor">BTC</b> payment.
+        </span>
+      </span>
+    </li>
+</ul>
